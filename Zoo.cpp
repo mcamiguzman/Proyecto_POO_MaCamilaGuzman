@@ -162,7 +162,6 @@ void Zoo::acciones(){
         }
 
     }
-
 }
 
 string &Zoo::getNombreZoo(){
@@ -176,24 +175,19 @@ void Zoo::EdiatrAimento(){
 
     for (int i = 0; i < animales.size(); i++) {
         if (animales[i]->getNombreAnimal() == nomAnimal) {
-            if(nomAnimal==accionesDisponibles[2]){
-                if(animales[i]->getCualHabitad()=="Herbivoro"){
-                    animales[i]->comer(typeHerbivoro);
-                }
-                if(animales[i]->getCualHabitad()=="Carnivoro"){
-                    animales[i]->comer(typeCarnivoro);
-                }
-                if(animales[i]->getCualHabitad()=="Omnivoro"){
-                    animales[i]->comer(typeOnmivoro);
-                }
+            if(animales[i]->getAlimento()=="Herbivoro"){
+                    animales[i]->EditAlimento(typeHerbivoro);
             }
-            break;         // Salir del bucle cuando se encuentra el valor buscado
+            if(animales[i]->getAlimento()=="Carnivoro"){
+                    animales[i]->EditAlimento(typeCarnivoro);
+            }
+            if(animales[i]->getAlimento()=="Omnivoro"){
+                    animales[i]->EditAlimento(typeOnmivoro);
+            }
         }
         else{
             cout<<"El animal no exite"<<endl;
         }
-
     }
-
 }
 

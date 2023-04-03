@@ -125,8 +125,7 @@ void Animal::EditAlimento(vector <string> vectorAlimentoZoo){
     }
     cout<<"Alimetos disponibles"<<endl;
     for(auto & itera : alimentosAnimal) {
-        cout << itera << endl;
-        cout<< "\n";
+        cout << itera << "\n";
     }
 
     // Pedir al usuario que ingrese la cadena de caracteres a buscar y reemplazar
@@ -140,18 +139,16 @@ void Animal::EditAlimento(vector <string> vectorAlimentoZoo){
     for (auto& str : alimentosAnimal) {
         if (str == oldStr) {
             str = newStr;
-            break;
-        }else{
-            cout<<"Alimento no disponible\n";
+            // Imprimir el vector después del reemplazo
+            std::cout << "Vector modificado: ";
+            for (const auto& str : alimentosAnimal) {
+                std::cout << str << " \n";
+            }
             break;
         }
     }
+    cout<<"Alimento no disponible\n";
 
-    // Imprimir el vector después del reemplazo
-    std::cout << "Vector modificado: ";
-    for (const auto& str : alimentosAnimal) {
-        std::cout << str << " \n";
-    }
 }
 
 
