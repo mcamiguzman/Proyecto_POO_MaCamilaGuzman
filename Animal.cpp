@@ -130,7 +130,7 @@ void Animal::EditAlimento(vector <string> vectorAlimentoZoo){
 
     // Pedir al usuario que ingrese la cadena de caracteres a buscar y reemplazar
     string oldStr, newStr;
-    cout << "Introduzca lo que desea reemplazar: \n";
+    cout << "Introduzca lo que desea reemplazar: \n\n";
     cin >> oldStr;
     cout << "Introduzca el reemplazo: \n";
     cin >> newStr;
