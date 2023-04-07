@@ -12,7 +12,22 @@ los animales como nombre, edad, tipo de alimentación, estado de salud, horas ma
 animales son: Comer (recibiendo el alimento y validando si este se encuentra en la lista aprobada para cada tipo), 
 Dormir (recibiendo el número de horas que el animal debe dormir) y Jugar (validando si el animal ya jugó en el día o no).
 * ermitir a los usuarios agregar y editar diferentes tipos de alimentos para los animales en el zoológico. 
+##### Se sugiere compilar y ejecutar el codigo en consola de Clion 
 ## UML del desarrollo 
 El UML fue desarrollado en la plataforma web Miro y se puede observar en el siguiente enlace: https://miro.com/app/board/uXjVMY7X-qA=/?share_link_id=996040061254
 ## Pruebas de funcionamineto
-## Problemas de funcionamiento en el momento
+Corriendo opcion 1
+![](https://github.com/mcamiguzman/Proyecto_POO_MaCamilaGuzman/blob/main/ImagenesMostrandoPruebas/ConstaFun1.png)
+Corriendo opcion 2
+![](https://github.com/mcamiguzman/Proyecto_POO_MaCamilaGuzman/blob/main/ImagenesMostrandoPruebas/ConstaFun2.png)
+Con un pequenio error que no se me ocurre como mejorar al ingresar edad
+
+
+Corriendo opncion 3
+![](https://github.com/mcamiguzman/Proyecto_POO_MaCamilaGuzman/blob/main/ImagenesMostrandoPruebas/ConstaFun3.png)
+Corriendo opcion 4 con la opcion Jugar
+![](https://github.com/mcamiguzman/Proyecto_POO_MaCamilaGuzman/blob/main/ImagenesMostrandoPruebas/ConstaFun4.png)
+Corriendo opcion 5
+![](https://github.com/mcamiguzman/Proyecto_POO_MaCamilaGuzman/blob/main/ImagenesMostrandoPruebas/ConstaFun5.png)
+Con un pequenio error que no se me ocurre como mejorar al ingresar el alimento a editar no lo pide por ende siempre arroja Alimento no disponible
+
