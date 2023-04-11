@@ -22,7 +22,9 @@ void Zoo::agragarGuardarHabitad() {
         cout<<"Habitad no disponible"<< endl;
     }
 }
-
+string &Zoo::getNombreZoo(){
+    return nombreZoo;
+}
 void Zoo::GuardarAnimal() {
     string habitat = "";
     string nombreAnimal="";
@@ -34,6 +36,7 @@ void Zoo::GuardarAnimal() {
     int edad = -1;
 
     //Pedir y verificar si es el caso
+    //Datos: Nombre, Habitad, Edad, Horas Minmo de dormir(<0), horas maximo de dormir,Estado de salud, Alimento
 
     cout << "Introduzca el habitad donde desea aniadir el animal \n";
     cin >> habitat;
@@ -41,8 +44,8 @@ void Zoo::GuardarAnimal() {
     cout << "Introduzca el nombre del animal \n";
     cin>>nombreAnimal;
 
-
-    while (edad < 0 || edad > 40) { // Mientras la edad sea posotiva y menor a 40 (el maximo de edad para mi)
+    // Mientras la edad sea posotiva y menor a 40 (el maximo de edad para mi) si no se vuelve a pedir
+    while (edad < 0 || edad > 40) {
         cout << "Introduzca la edad del animal \n";
         cin >> edad;
 
@@ -57,7 +60,8 @@ void Zoo::GuardarAnimal() {
         }
     }
 
-    while (horasMin < 0 ) { // Mientras la edad sea posotiva y menor a 40 (el maximo de edad para mi)
+    // Mientras la edad sea posotiva sino se vuelve a pedir
+    while (horasMin < 0 ) {
         cout << "Introduzca las horas minimo de suenio del animal \n";
         cin >> horasMin;
         if (cin.fail()) { // Verificar si la entrada es incorrecta
@@ -70,21 +74,23 @@ void Zoo::GuardarAnimal() {
         }
     }
 
+    // Estas no las evalua ya que depende de cada animal
     cout << "Introduzca las horas maximo de suenio del animal "<<endl;
-    cin >> horasMax;// Estas no las evalua ya que depende de cada animal
+    cin >> horasMax;
 
     cout << "Introduzca el estado de salud del animal \n";
     cin >> salud;
 
-    while (find(tipoAlimento.begin(), tipoAlimento.end(), alimento) == tipoAlimento.end()) { // Bucle while mientras entrada no esté en el vector v
+    //El vector tipoAlimento tiene definido los tipos de alimentos Que son las opciones correctas
+    while (find(tipoAlimento.begin(), tipoAlimento.end(), alimento) == tipoAlimento.end()) { //Mientras entrada no esté en el vector
         cout << "Introduzca el tipo de alimento del animal \n";
         cin >> alimento;
-        if (find(tipoAlimento.begin(), tipoAlimento.end(), alimento) == tipoAlimento.end()) { // Verificar si la entrada no está en el vector v
+        if (find(tipoAlimento.begin(), tipoAlimento.end(), alimento) == tipoAlimento.end()) { //Si la entrada no está en el vector
             cout << "El tipo de alimento no existe. Inténtelo de nuevo.\n" << std::endl;
         }
     }
 
-
+    //Si esta el habitad que introdujo dentro de vector habitat(almacena los habitats creados) se puede crear el animal
     for(auto & itera : habitads){
         if(itera->getNombreHabitad()==habitat){
 
@@ -98,8 +104,10 @@ void Zoo::GuardarAnimal() {
             pAnimal->setHorasDormirMax(horasMax);
             pAnimal->setHorasDormirMin(horasMin);
             pAnimal->setSalud(salud);
-            this->animales.push_back(pAnimal);
 
+            //Se guardas en el vector animales (guarda todos los animales
+            this->animales.push_back(pAnimal);
+            //Se guarda en el vector de la clase habitat (del habitat que pertenece)
             itera->agregarAnimal(pAnimal);
 
         }
@@ -110,7 +118,7 @@ void Zoo::GuardarAnimal() {
     }
 }
 
-
+//Llama al metodo de la clase habitad listarAnimales() que imprime los animales de cada habitad
 void Zoo::listarAnimalesDeHabitads() {
     for(auto & itera : habitads){
         itera->listarAnimales();
@@ -125,6 +133,7 @@ void Zoo::acciones(){
     cout << "Introduzca la accion a realixar \n";
     cin >> accionUsuario;
 
+    //Las acciones disponibles esta definidas en el vector accionesDisponibles
     while (find(accionesDisponibles.begin(), accionesDisponibles.end(), accionUsuario) == accionesDisponibles.end()) { // Bucle while mientras entrada no esté en el vector v
         cout << "Introduzca la accion a realixar \n";
         cin >> accionUsuario;
@@ -136,6 +145,7 @@ void Zoo::acciones(){
     cout << "Introduzca el nombre del animal"<< endl;
     cin >> nomAnimal;
 
+    //El vector animales continen todos los animales creados
     for (int i = 0; i < animales.size(); i++) {
         if (animales[i]->getNombreAnimal() == nomAnimal) {
             if(accionUsuario==accionesDisponibles[0]){
@@ -164,15 +174,14 @@ void Zoo::acciones(){
     }
 }
 
-string &Zoo::getNombreZoo(){
-    return nombreZoo;
-}
 
 void Zoo::EdiatrAimento(){
+
     string nomAnimal;
     cout << "Introduzca el nombre del animal \n";
     cin >> nomAnimal;
 
+    //Si se encuetra el animal obtiene el vector definido para alimentaciom se la pasa al metodo de la clase Animal
     for (int i = 0; i < animales.size(); i++) {
         if (animales[i]->getNombreAnimal() == nomAnimal) {
             if(animales[i]->getAlimento()=="Herbivoro"){

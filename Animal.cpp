@@ -135,7 +135,7 @@ void Animal::EditAlimento(vector <string> vectorAlimentoZoo){
     cout << "Introduzca el reemplazo: \n";
     cin >> newStr;
 
-    // Recorrer el vector y reemplazar la cadena de caracteres correspondiente
+    // Recorrer el vector y reemplazar
     for (auto& str : alimentosAnimal) {
         if (str == oldStr) {
             str = newStr;
