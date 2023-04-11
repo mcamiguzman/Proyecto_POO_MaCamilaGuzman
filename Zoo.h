@@ -44,7 +44,6 @@ public:
     void GuardarAnimal();
     void listarAnimalesDeHabitads();
     void acciones();
-    //Todo: void editarAlimentos();
     void EdiatrAimento();
 };
 
